@@ -2632,113 +2632,179 @@ footer.show {
     text-align: center;
 }
 
-/* OUR LOVE STORY */
+/* ==========================================
+   OUR LOVE STORY - EDITORIAL REDESIGN
+   ========================================== */
+.love-story-section {
+  padding: 60px 20px;
+  background-color: #faf8f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
 
+/* Triệt tiêu triệt để các watermark/chữ số 20 chìm nền cũ */
+.love-story-section::before,
+.love-story-section::after,
+.love-story-inner::before,
+.love-story-inner::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Thẻ Card trắng nổi bật trên nền kem */
+.love-story-card {
+  max-width: 680px;
+  width: 100%;
+  background: #ffffff;
+  padding: 45px 35px;
+  border-radius: 20px;
+  border: 1px solid #f0e6df;
+  box-shadow: 0 10px 30px rgba(140, 109, 88, 0.08);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.love-story-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Sub-title nhã nhặn */
 .love-story-label {
-    margin-bottom: 18px;
-
-    color: var(--gold);
-
-    font-size: 10px;
-    letter-spacing: 6px;
-
-    opacity: 0;
-    transform: translateY(20px);
-
-    animation: loveStoryFadeUp 1s ease forwards;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #8c6d58;
+  font-weight: 700;
+  margin: 0 0 10px 0;
 }
 
-/* Đường trang trí */
-
-.love-story-line {
-    width: 0;
-    height: 1px;
-
-    margin: 0 auto 35px;
-
-    background: var(--gold);
-
-    opacity: 0.6;
-
-    animation: loveStoryLine 1.2s ease 0.5s forwards;
-}
-
-/* Tiêu đề */
-
+/* Tiêu đề chính */
 .love-story-title {
-    margin-bottom: 40px;
-
-    color: var(--text);
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: clamp(38px, 6vw, 60px);
-
-    font-weight: 400;
-
-    line-height: 1.15;
-
-    opacity: 0;
-    transform: translateY(25px);
-
-    animation:
-        loveStoryFadeUp 1s ease 0.7s forwards;
+  font-size: 30px;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0 0 16px 0;
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
-/* Nội dung */
+/* Đường kẻ phân cách */
+.love-story-line {
+  width: 45px;
+  height: 2px;
+  background-color: #8c6d58;
+  margin: 0 auto 24px;
+  border-radius: 2px;
+}
 
+/* Đoạn văn bản tự sự */
 .love-story-text {
-    max-width: 650px;
-
-    margin: 0 auto 24px;
-
-    color: var(--text-light);
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 17px;
-
-    line-height: 2.15;
-
-    letter-spacing: 0.02em;
-
-    opacity: 0;
-    transform: translateY(25px);
+  font-size: 16px;
+  line-height: 1.85;
+  color: #555555;
+  font-style: italic;
+  font-family: Georgia, serif;
+  margin: 0 0 35px 0;
+  padding: 0 10px;
 }
 
-.love-story-text:nth-of-type(1) {
-    animation:
-        loveStoryFadeUp 1s ease 1s forwards;
+/* Timeline 01 - 02 - 03 */
+.love-story-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 25px;
+  border-top: 1px dashed #e8ded6;
 }
 
-.love-story-text:nth-of-type(2) {
-    animation:
-        loveStoryFadeUp 1s ease 1.4s forwards;
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 75px;
 }
 
-/* Trái tim cuối */
+.step-number {
+  font-size: 18px;
+  font-weight: 700;
+  color: #8c6d58;
+  font-family: 'Playfair Display', Georgia, serif;
+  line-height: 1.2;
+}
 
-.love-story-symbol {
-    margin-top: 38px;
+.step-text {
+  font-size: 11.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #666666;
+  margin-top: 4px;
+  font-weight: 600;
+}
 
-    color: var(--gold);
+/* Điểm nhấn cho mốc "Về Một Nhà" */
+.timeline-step.highlight .step-number {
+  color: #8c6d58;
+  font-size: 20px;
+}
 
-    font-family: Georgia, serif;
+.timeline-step.highlight .step-text {
+  color: #8c6d58;
+  font-weight: 700;
+}
 
-    font-size: 28px;
+/* Đường nối giữa các mốc */
+.timeline-line {
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: #e8ded6;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    opacity: 0;
+/* Trái tim nhịp đập ở giữa đường nối */
+.pulse-icon {
+  font-size: 10px;
+  background: #ffffff;
+  padding: 0 3px;
+  animation: heartPulse 1.6s infinite ease-in-out;
+}
 
-    transform: scale(0.5);
+@keyframes heartPulse {
+  0% { transform: scale(0.85); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(0.85); }
+}
 
-    animation:
-        loveStoryHeart 1s ease 1.9s forwards;
+/* Responsive di động */
+@media (max-width: 500px) {
+  .love-story-card {
+    padding: 30px 18px;
+  }
+  .love-story-title {
+    font-size: 24px;
+  }
+  .love-story-text {
+    font-size: 14.5px;
+    line-height: 1.75;
+    padding: 0;
+  }
+  .timeline-line {
+    max-width: 30px;
+  }
+  .step-number {
+    font-size: 16px;
+  }
+  .step-text {
+    font-size: 10.5px;
+  }
 }
 
 
