@@ -286,3 +286,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+// HIỆU ỨNG CUỘN TRANG XUẤT HIỆN (SCROLL REVEAL)
+document.addEventListener('DOMContentLoaded', () => {
+    // Tự động tìm các phần tử chính hoặc có lớp .reveal-on-scroll
+    const revealElements = document.querySelectorAll(
+        '.reveal-on-scroll, section, .love-story-card, .slideshow-container, .map-container, .couple-card'
+    );
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                // Bỏ observer sau khi đã xuất hiện để tiết kiệm tài nguyên
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.15, // Hiển thị khi 15% phần tử đi vào màn hình
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => {
+        el.classList.add('reveal-on-scroll');
+        revealObserver.observe(el);
+    });
+});
